@@ -12,6 +12,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+// LED Color control library
+import de.pi3g.pi.rgbled.RGBLedStripe;
+import de.pi3g.pi.rgbled.RGBLed;
+import de.pi3g.pi.rgbled.PinLayout;
+import com.pi4j.io.gpio.RaspiPin;
+import java.awt.Color;
+
 public class MindFlexReader {
 	static final int PACKET_NO = -1;
 	static final int PACKET_MAYBE = 0;
@@ -277,6 +284,9 @@ public class MindFlexReader {
 
 		int v;
 
+		// LED color controller
+		RGBLedStripe stripe = new RGBLedStripe(RaspiPin.GPIO_00, RaspiPin.GPIO_01, 50);
+
 		switch(code) {
 		case (byte)0x02:
 			gui.log("POOR_SIGNAL "+(0xFF&(int)buffer[pos]));
@@ -290,6 +300,16 @@ public class MindFlexReader {
 		gui.log("ATTENTION "+v);
 		curPowerData.attention = v / 100.;
 		curPowerData.haveAttention = true;
+
+		// TODO: put code here for Attention LEDs
+		if (v > 50) {
+			stripe.setAllColors(Color.RED);
+			stripe.update();
+		} else {
+			stripe.setAllColors(Color.GREEN);
+			stripe.update();
+		}
+
 		break;
 		case (byte)0x05:
 			v = 0xFF&(int)buffer[pos];
