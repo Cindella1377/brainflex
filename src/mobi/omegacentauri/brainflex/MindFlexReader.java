@@ -306,25 +306,23 @@ public class MindFlexReader {
 
             System.out.println( "Setting stripe color." );
 		// TODO: put code here for Attention LEDs
-		if (v > 50) {
-//			stripe.setAllColors(Color.RED);
-//			stripe.update();
-            System.out.println( "More than 50 color." );
+		if (v > 70) {
+            System.out.print( "More than 70 color: " );
 
             // color dimming
-            // int percent = ( 100 * v ) / 100;
-            // System.out.println( percent );
             int color =  ( 255 * v ) / 100;
             System.out.println( color );
+            // red
             StringBuilder sb = new StringBuilder (String.valueOf ( "pigs p 23 " ) );
             sb.append( color );
-            //System.out.println( "Less than 50 color: " + sb.toString() );
+            //System.out.println( "More than 70 color: " + sb.toString() );
 
             try {
-                Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "pigs p 18 0"});
-                Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", sb.toString() });
+                Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "pigs p 18 0"}); // green
+                Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", sb.toString() }); // red
+                Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "pigs p 24 0"}); // blue
             } catch( IOException e ) {
-                System.out.println( "More than 50 exception." );
+                System.out.println( "More than 70 exception." );
                 e.printStackTrace();
                 System.err.println(e);
                 System.err.println(e.getMessage());
@@ -332,25 +330,46 @@ public class MindFlexReader {
                 System.err.println(Arrays.toString(e.getStackTrace()));
                 break;
             }
-		} else {
-//			stripe.setAllColors(Color.GREEN);
-//			stripe.update();
-            System.out.println( "Less than 50 color." );
+		} else if (v > 40) {
+            System.out.print( "More than 40 color: " );
 
             // color dimming
-            // int percent = ( 100 * v ) / 100;
-            // System.out.println( percent );
             int color =  ( 255 * v ) / 100;
             System.out.println( color );
-            StringBuilder sb = new StringBuilder (String.valueOf ( "pigs p 23 " ) );
+            // blue
+            StringBuilder sb = new StringBuilder (String.valueOf ( "pigs p 24 " ) );
             sb.append( color );
-            //System.out.println( "Less than 50 color: " + sb.toString() );
+            //System.out.println( "More than 40 color: " + sb.toString() );
 
             try {
-			    Runtime.getRuntime().exec( new String[] {"/bin/sh", "-c", sb.toString() } );
-			    Runtime.getRuntime().exec( new String[] {"/bin/sh", "-c", "pigs p 23 0" } );
+                Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "pigs p 18 0"}); // green
+                Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "pigs p 23 0"}); // red
+                Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", sb.toString() }); // blue
             } catch( IOException e ) {
-                System.out.println( "Less than 50 exception." );
+                System.out.println( "More than 40 exception." );
+                e.printStackTrace();
+                System.err.println(e);
+                System.err.println(e.getMessage());
+                System.err.println(e.getCause());
+                System.err.println(Arrays.toString(e.getStackTrace()));
+                break;
+            }
+        } else {
+            System.out.print( "Less than 40 color: " );
+
+            int color =  ( 255 * v ) / 100;
+            System.out.println( color );
+            // green
+            StringBuilder sb = new StringBuilder (String.valueOf ( "pigs p 18 " ) );
+            sb.append( color );
+            //System.out.println( "Less than 40 color: " + sb.toString() );
+
+            try {
+			    Runtime.getRuntime().exec( new String[] {"/bin/sh", "-c", sb.toString() } ); // green
+			    Runtime.getRuntime().exec( new String[] {"/bin/sh", "-c", "pigs p 23 0" } ); // red
+                Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "pigs p 24 0"}); // blue
+            } catch( IOException e ) {
+                System.out.println( "Less than 40 exception." );
                 e.printStackTrace();
                 System.err.println(e);
                 System.err.println(e.getMessage());
