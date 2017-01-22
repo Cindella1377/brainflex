@@ -306,13 +306,21 @@ public class MindFlexReader {
 		if (v > 50) {
 //			stripe.setAllColors(Color.RED);
 //			stripe.update();
-			Runtime.getRuntime().exec( new String[] {"/usr/bin/sh", "-c", "pigs p 18 0" } );
-			Runtime.getRuntime().exec( new String[] {"/usr/bin/sh", "-c", "pigs p 23 255" } );
+            try {
+                Runtime.getRuntime().exec(new String[]{"/usr/bin/sh", "-c", "pigs p 18 0"});
+                Runtime.getRuntime().exec(new String[]{"/usr/bin/sh", "-c", "pigs p 23 255"});
+            } catch( IOException e ) {
+                break;
+            }
 		} else {
 //			stripe.setAllColors(Color.GREEN);
 //			stripe.update();
-			Runtime.getRuntime().exec( new String[] {"/usr/bin/sh", "-c", "pigs p 18 255" } );
-			Runtime.getRuntime().exec( new String[] {"/usr/bin/sh", "-c", "pigs p 23 0" } );
+            try {
+			    Runtime.getRuntime().exec( new String[] {"/usr/bin/sh", "-c", "pigs p 18 255" } );
+			    Runtime.getRuntime().exec( new String[] {"/usr/bin/sh", "-c", "pigs p 23 0" } );
+            } catch( IOException e ) {
+                break;
+            }
 		}
 
 		break;
