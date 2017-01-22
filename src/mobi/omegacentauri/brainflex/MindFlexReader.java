@@ -11,13 +11,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.lang.Runtime;
 
 // LED Color control library
-import de.pi3g.pi.rgbled.RGBLedStripe;
-import de.pi3g.pi.rgbled.RGBLed;
-import de.pi3g.pi.rgbled.PinLayout;
-import com.pi4j.io.gpio.RaspiPin;
-import java.awt.Color;
+//import de.pi3g.pi.rgbled.RGBLedStripe;
+//import de.pi3g.pi.rgbled.RGBLed;
+//import de.pi3g.pi.rgbled.PinLayout;
+//import com.pi4j.io.gpio.RaspiPin;
+//import java.awt.Color;
 
 public class MindFlexReader {
 	static final int PACKET_NO = -1;
@@ -303,11 +304,15 @@ public class MindFlexReader {
 
 		// TODO: put code here for Attention LEDs
 		if (v > 50) {
-			stripe.setAllColors(Color.RED);
-			stripe.update();
+//			stripe.setAllColors(Color.RED);
+//			stripe.update();
+			Runtime.getRuntime().exec( new String[] {"/usr/bin/sh", "-c", "pigs p 18 0" } );
+			Runtime.getRuntime().exec( new String[] {"/usr/bin/sh", "-c", "pigs p 23 255" } );
 		} else {
-			stripe.setAllColors(Color.GREEN);
-			stripe.update();
+//			stripe.setAllColors(Color.GREEN);
+//			stripe.update();
+			Runtime.getRuntime().exec( new String[] {"/usr/bin/sh", "-c", "pigs p 18 255" } );
+			Runtime.getRuntime().exec( new String[] {"/usr/bin/sh", "-c", "pigs p 23 0" } );
 		}
 
 		break;
