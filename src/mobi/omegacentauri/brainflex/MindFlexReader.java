@@ -314,6 +314,11 @@ public class MindFlexReader {
                 Runtime.getRuntime().exec(new String[]{"/usr/bin/sh", "-c", "pigs p 23 255"});
             } catch( IOException e ) {
                 System.out.println( "More than 50 exception." );
+                e.printStackTrace();
+                System.err.println(e);
+                System.err.println(e.getMessage());
+                System.err.println(e.getCause());
+                System.err.println(Arrays.toString(e.getStackTrace()));
                 break;
             }
 		} else {
@@ -325,6 +330,11 @@ public class MindFlexReader {
 			    Runtime.getRuntime().exec( new String[] {"/usr/bin/sh", "-c", "pigs p 23 0" } );
             } catch( IOException e ) {
                 System.out.println( "Less than 50 exception." );
+                e.printStackTrace();
+                System.err.println(e);
+                System.err.println(e.getMessage());
+                System.err.println(e.getCause());
+                System.err.println(Arrays.toString(e.getStackTrace()));
                 break;
             }
 		}
