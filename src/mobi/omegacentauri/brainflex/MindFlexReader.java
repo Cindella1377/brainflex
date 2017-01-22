@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.lang.Runtime;
 import java.lang.System;
+import java.lang.StringBuilder;
 
 // LED Color control library
 //import de.pi3g.pi.rgbled.RGBLedStripe;
@@ -309,9 +310,19 @@ public class MindFlexReader {
 //			stripe.setAllColors(Color.RED);
 //			stripe.update();
             System.out.println( "More than 50 color." );
+
+            // color dimming
+            int percent = ( 100 * v ) / 50;
+            System.out.println( percent );
+            int color =  ( 255 * percent ) / 100;
+            System.out.println( color );
+            StringBuilder sb = new StringBuilder (String.valueOf ( "pigs p 23 " ) );
+            sb.append( color );
+            //System.out.println( "Less than 50 color: " + sb.toString() );
+
             try {
                 Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "pigs p 18 0"});
-                Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "pigs p 23 255"});
+                Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", sb.toString() });
             } catch( IOException e ) {
                 System.out.println( "More than 50 exception." );
                 e.printStackTrace();
@@ -325,8 +336,18 @@ public class MindFlexReader {
 //			stripe.setAllColors(Color.GREEN);
 //			stripe.update();
             System.out.println( "Less than 50 color." );
+
+            // color dimming
+            int percent = ( 100 * v ) / 50;
+            System.out.println( percent );
+            int color =  ( 255 * percent ) / 100;
+            System.out.println( color );
+            StringBuilder sb = new StringBuilder (String.valueOf ( "pigs p 23 " ) );
+            sb.append( color );
+            //System.out.println( "Less than 50 color: " + sb.toString() );
+
             try {
-			    Runtime.getRuntime().exec( new String[] {"/bin/sh", "-c", "pigs p 18 255" } );
+			    Runtime.getRuntime().exec( new String[] {"/bin/sh", "-c", sb.toString() } );
 			    Runtime.getRuntime().exec( new String[] {"/bin/sh", "-c", "pigs p 23 0" } );
             } catch( IOException e ) {
                 System.out.println( "Less than 50 exception." );
