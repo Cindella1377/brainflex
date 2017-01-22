@@ -303,28 +303,28 @@ public class MindFlexReader {
 		curPowerData.attention = v / 100.;
 		curPowerData.haveAttention = true;
 
-            System.out.println( "Setting stripe color." )
+            System.out.println( "Setting stripe color." );
 		// TODO: put code here for Attention LEDs
 		if (v > 50) {
 //			stripe.setAllColors(Color.RED);
 //			stripe.update();
-            System.out.println( "More than 50 color." )
+            System.out.println( "More than 50 color." );
             try {
                 Runtime.getRuntime().exec(new String[]{"/usr/bin/sh", "-c", "pigs p 18 0"});
                 Runtime.getRuntime().exec(new String[]{"/usr/bin/sh", "-c", "pigs p 23 255"});
             } catch( IOException e ) {
-                System.out.println( "More than 50 exception." )
+                System.out.println( "More than 50 exception." );
                 break;
             }
 		} else {
 //			stripe.setAllColors(Color.GREEN);
 //			stripe.update();
-            System.out.println( "Less than 50 color." )
+            System.out.println( "Less than 50 color." );
             try {
 			    Runtime.getRuntime().exec( new String[] {"/usr/bin/sh", "-c", "pigs p 18 255" } );
 			    Runtime.getRuntime().exec( new String[] {"/usr/bin/sh", "-c", "pigs p 23 0" } );
             } catch( IOException e ) {
-                System.out.println( "Less than 50 exception." )
+                System.out.println( "Less than 50 exception." );
                 break;
             }
 		}
