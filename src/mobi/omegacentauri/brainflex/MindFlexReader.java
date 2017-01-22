@@ -312,9 +312,9 @@ public class MindFlexReader {
             System.out.println( "More than 50 color." );
 
             // color dimming
-            int percent = ( 100 * v ) / 50;
-            System.out.println( percent );
-            int color =  ( 255 * percent ) / 100;
+            // int percent = ( 100 * v ) / 100;
+            // System.out.println( percent );
+            int color =  ( 255 * v ) / 100;
             System.out.println( color );
             StringBuilder sb = new StringBuilder (String.valueOf ( "pigs p 23 " ) );
             sb.append( color );
@@ -338,9 +338,9 @@ public class MindFlexReader {
             System.out.println( "Less than 50 color." );
 
             // color dimming
-            int percent = ( 100 * v ) / 50;
-            System.out.println( percent );
-            int color =  ( 255 * percent ) / 100;
+            // int percent = ( 100 * v ) / 100;
+            // System.out.println( percent );
+            int color =  ( 255 * v ) / 100;
             System.out.println( color );
             StringBuilder sb = new StringBuilder (String.valueOf ( "pigs p 23 " ) );
             sb.append( color );
