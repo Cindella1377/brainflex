@@ -310,8 +310,8 @@ public class MindFlexReader {
 //			stripe.update();
             System.out.println( "More than 50 color." );
             try {
-                Runtime.getRuntime().exec(new String[]{"/usr/bin/sh", "-c", "pigs p 18 0"});
-                Runtime.getRuntime().exec(new String[]{"/usr/bin/sh", "-c", "pigs p 23 255"});
+                Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "pigs p 18 0"});
+                Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "pigs p 23 255"});
             } catch( IOException e ) {
                 System.out.println( "More than 50 exception." );
                 e.printStackTrace();
@@ -326,8 +326,8 @@ public class MindFlexReader {
 //			stripe.update();
             System.out.println( "Less than 50 color." );
             try {
-			    Runtime.getRuntime().exec( new String[] {"/usr/bin/sh", "-c", "pigs p 18 255" } );
-			    Runtime.getRuntime().exec( new String[] {"/usr/bin/sh", "-c", "pigs p 23 0" } );
+			    Runtime.getRuntime().exec( new String[] {"/bin/sh", "-c", "pigs p 18 255" } );
+			    Runtime.getRuntime().exec( new String[] {"/bin/sh", "-c", "pigs p 23 0" } );
             } catch( IOException e ) {
                 System.out.println( "Less than 50 exception." );
                 e.printStackTrace();
