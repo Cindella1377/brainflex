@@ -6,8 +6,10 @@ Communicate with MindFlex toy EEG via BrainLink and use MindFLex data to control
 This works best with the custom BrainLink firmware:
 https://github.com/arpruss/custom-brainlink-firmware
 
+```Bash
 javac -cp ./'*' -d bin -sourcepath src src/mobi/omegacentauri/brainflex/BrainFlex.java
 java -cp bin:./'*' mobi.omegacentauri.brainflex.BrainFlex
+```
 =======
 
 
