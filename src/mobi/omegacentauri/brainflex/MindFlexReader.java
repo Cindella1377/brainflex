@@ -286,7 +286,7 @@ public class MindFlexReader {
 		int v;
 
 		// LED color controller
-		RGBLedStripe stripe = new RGBLedStripe(RaspiPin.GPIO_00, RaspiPin.GPIO_01, 50);
+//		RGBLedStripe stripe = new RGBLedStripe(RaspiPin.GPIO_00, RaspiPin.GPIO_01, 50);
 
 		switch(code) {
 		case (byte)0x02:
