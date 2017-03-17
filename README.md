@@ -31,7 +31,7 @@ java -cp bin:./'*' mobi.omegacentauri.brainflex.BrainFlex
 ### Contributors
 This was apart of [Valley Hackthon](http://valleyhackathon.com/events/ValleyHack2017) team.
 
-Samantha Reigelsberger<br />
+Samantha Riegelsberger<br />
 Danielle Teatmeyer<br />
 [Kevin He](https://github.com/hekevintran/brainflex)<br />
 [Michael T. Andemeskel](https://github.com/mandemeskel)<br />
